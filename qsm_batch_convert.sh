@@ -3,7 +3,6 @@
 convdir=/misc/lauterbur/lconcha/TMP/qsm/conv
 linksdir=/misc/lauterbur/lconcha/TMP/qsm/links
 
-20231003_130248_hluna_piloFe_irm1_rata8_hluna_piloFe_irm1_r_1_1
 
 for f in $linksdir/20*
 do
