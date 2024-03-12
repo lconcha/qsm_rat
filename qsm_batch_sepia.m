@@ -35,8 +35,15 @@ for r = 3 : length(d)
     input = fullfile(images_dir,this_rat);
     output_basename = fullfile(images_dir,this_rat,'output','sepiabatch');
     mask_filename = fullfile(images_dir,this_rat,'brain_mask.nii.gz') ;
-  
-    sepiaIO(input,output_basename,mask_filename,algorParam);
+    
+    fcheck=fullfile([output_basename '_Chimap.nii.gz']);
+    if isfile(fcheck)
+      fprintf(1,'[INFO] File exists: %s\n       Will not overwrite.\n',fcheck);
+      continue;
+    else
+      fprintf(1,'Will create files with prefix: %s\n',output_basename);
+      sepiaIO(input,output_basename,mask_filename,algorParam);
+    end
 end
 
 
