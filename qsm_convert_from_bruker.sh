@@ -6,6 +6,16 @@ scan_folder=$1
 exam_number=$2
 out_folder=$3
 
+if [ -f ${out_folder}/magnitude.nii.gz ]
+then
+  echolor green "[INFO] Already converted: $out_folder"
+  echolor green "       Will not overwrite. Quitting."
+  exit 0
+else
+  echolor cyan "[INFO] Here we go..."
+fi
+
+
 strT2=T2star_map_MGE_ax
 
 
@@ -33,16 +43,16 @@ magnitude_reco_number=1;# this is always one
 str=$(grep "PHASE_IMAGE" ${scan_folder}/${exam_number}/pdata/*/visu_pars | head -n 1)
 phase_reco_number=$(echo $str | awk -F: '{print $1}' | awk -F/ '{print $(NF-1)}')
 
-str=$(grep "REAL_IMAGE" ${scan_folder}/${exam_number}/pdata/*/visu_pars | head -n 1)
-real_reco_number=$(echo $str | awk -F: '{print $1}' | awk -F/ '{print $(NF-1)}')
+#str=$(grep "REAL_IMAGE" ${scan_folder}/${exam_number}/pdata/*/visu_pars | head -n 1)
+#real_reco_number=$(echo $str | awk -F: '{print $1}' | awk -F/ '{print $(NF-1)}')
 
-str=$(grep "IMAGINARY_IMAGE" ${scan_folder}/${exam_number}/pdata/*/visu_pars | head -n 1)
-imaginary_reco_number=$(echo $str | awk -F: '{print $1}' | awk -F/ '{print $(NF-1)}')
+#str=$(grep "IMAGINARY_IMAGE" ${scan_folder}/${exam_number}/pdata/*/visu_pars | head -n 1)
+#imaginary_reco_number=$(echo $str | awk -F: '{print $1}' | awk -F/ '{print $(NF-1)}')
 
 echo "[INFO] MAGNITUDE_IMAGE : $magnitude_reco_number"
 echo "[INFO] PHASE_IMAGE : $phase_reco_number"
-echo "[INFO] REAL_IMAGE : $real_reco_number"
-echo "[INFO] IMAGINARY_IMAGE : $imaginary_reco_number"
+#echo "[INFO] REAL_IMAGE : $real_reco_number"
+#echo "[INFO] IMAGINARY_IMAGE : $imaginary_reco_number"
 
 
 ## Convert
