@@ -1,7 +1,7 @@
 #!/bin/bash
 
-convdir=/misc/lauterbur/lconcha/TMP/qsm/conv
-linksdir=/misc/lauterbur/lconcha/TMP/qsm/links
+convdir=/misc/mansfield/lconcha/exp/qsm/conv
+linksdir=/misc/mansfield/lconcha/exp/qsm/links
 
 
 for f in $linksdir/20*

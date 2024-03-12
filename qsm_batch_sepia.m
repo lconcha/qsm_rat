@@ -2,7 +2,7 @@
 addpath('/misc/mansfield/lconcha/software/sepia')
 sepia_addpath;
 
-images_dir = '/misc/lauterbur/lconcha/TMP/qsm/conv';
+images_dir = '/misc/mansfield/lconcha/exp/qsm/conv';
 
 % General algorithm parameters
 algorParam = struct();
